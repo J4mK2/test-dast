@@ -1,0 +1,22 @@
+
+name: tfsec
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  hawkscan:
+    name: StackHawk DAST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+      - name: Run the Vuln Django Containers
+        run: docker-compose up -d
+      - name: Run HawkScan
+        uses: stackhawk/hawkscan-action@v1.2.1
+        with:
+          apiKey: ${{ secrets.DAST_SECRET }}
+          configurationFiles: stackhawk.yml
+
