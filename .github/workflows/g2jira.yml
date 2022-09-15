@@ -1,5 +1,6 @@
 
 
+
 name: "Sync GithubSecurityAlert to Jira"
 
 on:
