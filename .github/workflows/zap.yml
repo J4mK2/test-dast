@@ -19,8 +19,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://www.zaproxy.org'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
 
 
       - name: Create sarif file from zaproxy results         
